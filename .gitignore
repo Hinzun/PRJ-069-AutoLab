@@ -10,3 +10,6 @@
 Thumbs.db
 *.bak
 *.tmp
+
+# Claude Code – osobné nastavenia
+.claude/settings.local.json

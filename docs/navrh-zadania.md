@@ -102,6 +102,8 @@ Minuloročné stránky projektov (2025/26) sú zväčša nevyplnené šablóny, 
 
 ## 4. Posúdenie AI špecifikácie
 
+> „AI špecifikácia“ je koncept, ktorý kolegovi vygenerovala AI (PDF). V repozitári nie je. Opravená a na náš rozsah zúžená verzia je v [specifikacia.md](specifikacia.md).
+
 ### 4.1 Čo je dobré (ponechať)
 
 - Systémový pohľad (Obr. 1): dve vnorené slučky, hranica systému, okolie, oneskorenie a kompromisy. Presne to chce predmet.
@@ -267,10 +269,10 @@ Spoločne: denník aktivít (každý si zapisuje vlastný), testy, video a preze
 | SDLC fáza (poradie z prezentácie) | Čo tam dáme | Zdroj |
 |---|---|---|
 | 01 Business | problém, používateľ (učiteľ/študent STEM), hodnota, stakeholderi | kapitola 4.3 tohto návrhu |
-| 02 Top Level Architecture | systémový pohľad, dve slučky, hranica systému | špecifikácia, kap. 3 (Obr. 1) |
-| 03 Solution Architecture | vrstvy stránka / komunikácia / logika / hardvér | špecifikácia, kap. 5 |
-| 04 Analysis | požiadavky MoSCoW, rozhodnutia, riziká, rozpočet | kap. 5 tohto návrhu, špecifikácia, kap. 6, 11 |
-| 05 Design | zapojenie, podvozok, protokol, parametre, UI | špecifikácia, kap. 6, 8, 9 (s opravami) |
+| 02 Top Level Architecture | systémový pohľad, dve slučky, hranica systému | [špecifikácia, kap. 2](specifikacia.md#2-systémový-pohľad) |
+| 03 Solution Architecture | vrstvy stránka / komunikácia / logika / hardvér | [špecifikácia, kap. 3](specifikacia.md#3-architektúra) |
+| 04 Analysis | požiadavky MoSCoW, rozhodnutia, riziká, rozpočet | kap. 4–6 tohto návrhu |
+| 05 Design | zapojenie, podvozok, protokol, parametre, UI | [špecifikácia, kap. 5–8](specifikacia.md#5-firmvér), kap. 6 tohto návrhu |
 | 06 Implementation | firmvér, stránka, STL, fotky | repozitár `PRJ-069-AutoLab` |
 | 07 Testing & Verification | protokol testov G1–G5 | kap. 5 tohto návrhu |
 | 08 Operation | návod na použitie, nabíjanie, bezpečnosť | nové |

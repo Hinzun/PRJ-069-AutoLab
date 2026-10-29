@@ -26,6 +26,7 @@ PRJ-069-AutoLab/
 ```
 
 - [Návrh zadania](docs/navrh-zadania.md): rozsah, požiadavky, hardvér, harmonogram, rozdelenie práce
+- [Technická špecifikácia](docs/specifikacia.md): ako auto funguje (režimy, bezpečnosť, protokol, parametre, stránka)
 - [Dokumentácia podľa SDLC](docs/README.md)
 - [Protokol testov](docs/testovaci-protokol.md)
 
@@ -35,6 +36,7 @@ PRJ-069-AutoLab/
 - Malé commity s popisom, čo sa zmenilo.
 - Raz týždenne krátke stretnutie: čo je hotové, čo ďalej, čo blokuje.
 - Každý si zapisuje svoju prácu do **denníka aktivít v osobnom repozitári** (hodnotí sa).
+- Kto používa Claude Code: pokyny pre neho sú v [CLAUDE.md](CLAUDE.md) a načíta ich sám. Podpis Claude v commitoch je vypnutý v `.claude/settings.json`.
 
 ## Osobné výstupy
 

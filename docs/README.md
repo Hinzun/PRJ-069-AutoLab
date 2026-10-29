@@ -5,8 +5,8 @@ Poradie fáz zodpovedá štruktúre finálnej prezentácie a sekcie Project Outc
 | Fáza | Čo tam patrí | Zodpovedá | Stav |
 |---|---|---|---|
 | 01 Business | problém, používateľ, hodnota, stakeholderi | Samuel Roháč | návrh v [navrh-zadania.md](navrh-zadania.md), kap. 4.3 |
-| 02 Top Level Architecture | systémový pohľad: dve spätné väzby, hranica systému | Erik Dusík | ☐ |
-| 03 Solution Architecture | vrstvy stránka / komunikácia / logika / hardvér, protokol správ | Erik Dusík | ☐ |
+| 02 Top Level Architecture | systémový pohľad: dve spätné väzby, hranica systému | Erik Dusík | návrh v [specifikacia.md](specifikacia.md), kap. 2 |
+| 03 Solution Architecture | vrstvy stránka / komunikácia / logika / hardvér, protokol správ | Erik Dusík | návrh v [specifikacia.md](specifikacia.md), kap. 3 a 6 |
 | 04 Analysis | požiadavky, rozhodnutia, riziká, rozpočet | Samuel Roháč | návrh v [navrh-zadania.md](navrh-zadania.md), kap. 5–6 |
 | 05 Design | zapojenie, podvozok, parametre, UI | Branislav Bučko | ☐ |
 | 06 Implementation | firmvér, stránka, STL, fotky | všetci | ☐ |
