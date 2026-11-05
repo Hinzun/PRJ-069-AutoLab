@@ -32,7 +32,8 @@ Zoznamy obsahu balenia sa v obchodoch líšia, preto to treba skontrolovať pria
 
 | Čo | Treba pre | Stav |
 |---|---|---|
-| koľko áut dostaneme a či ich môžeme mať do prezentácie | všetky možnosti na mBot2 | TODO |
+| počet áut | všetky možnosti na mBot2 | v SmartLabe ich je približne 20 (Erik ich videl osobne) |
+| môžeme si ich požičať a mať ich až do prezentácie | všetky možnosti na mBot2 | TODO |
 | senzor čiary (Quad RGB) | Nerozlej | TODO |
 | ultrazvukový senzor | Brzdná výzva, Nerozlej | TODO |
 | gyroskop, displej a joystick na CyberPi | Brzdná výzva, Nerozlej | TODO |
@@ -44,7 +45,7 @@ Zoznamy obsahu balenia sa v obchodoch líšia, preto to treba skontrolovať pria
 
 | # | Krok | Kto | Stav |
 |---|---|---|---|
-| 1 | spýtať sa cvičiaceho na počet áut, výpožičku a nápady | TODO | TODO |
+| 1 | spýtať sa cvičiaceho a SmartLabu na výpožičku áut a nápady | TODO | TODO |
 | 2 | skontrolovať autá podľa tabuľky vyššie | TODO | TODO |
 | 3 | spraviť prvý test vybranej možnosti | TODO | TODO |
 | 4 | rozhodnúť o projekte a zapísať to sem | tím | TODO |
