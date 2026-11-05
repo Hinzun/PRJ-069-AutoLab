@@ -4,7 +4,7 @@
 
 ## Čo práve platí
 
-- **Výber projektu je otvorený.** Tím si ešte nevybral.
+- **Výber projektu je otvorený.** Tím si ešte nevybral. Erik preferuje [Nerozlej](moznost-nerozlej.md).
 - **Nákup dielov je pozastavený**, kým sa tím nerozhodne. Cvičiaci odporučil použiť požičané mBot2 a zbytočne neminúť peniaze.
 - **Finálna prezentácia** bude v januári 2027, presný dátum zatiaľ nepoznáme. Podľa cvičiaceho zrejme nebude v PowerPointe, [podklady](prezentacia.md) sú pripravené ako kostra.
 
