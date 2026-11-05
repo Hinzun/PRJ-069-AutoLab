@@ -18,6 +18,12 @@
 
 Podrobné porovnanie je v [moznost-nerozlej.md](moznost-nerozlej.md#porovnanie-možností). Zvážené a odložené nápady sú v [ceste projektu](cesta-projektu.md).
 
+### Prečo Erik preferuje Nerozlej
+
+- **Oproti ESP32:** použijeme požičané mBot2, takže by sme nemali kupovať diely ani zapájať hardvér. Výbavu áut ešte treba overiť.
+- **Oproti Brzdnej výzve:** výsledok je hneď vidieť, lebo loptička sa buď udrží, alebo spadne, a hĺbka nádoby dáva hre obtiažnosti.
+- **Pre cestu projektu:** nádobu budeme skúšať a vylepšovať, takže prirodzene vzniknú prototypy a zaznamenané pokusy.
+
 ### Návrh, podľa čoho vyberať
 
 1. Prejde prvý krátky test na aute?
