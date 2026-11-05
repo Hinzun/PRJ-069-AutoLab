@@ -49,6 +49,8 @@ Kamera, Wi-Fi a mobil. Rebríček výsledkov je len voliteľný.
 
 ## Prvý test
 
+Kto ho spraví: TODO. Čo treba najprv skontrolovať na autách, je v [stave projektu](stav-projektu.md#čo-overiť-na-požičaných-autách).
+
 1. Nahráme krátky program, v ktorom auto zastaví pred stenou.
 2. Skúsime zmeniť vzdialenosť zastavenia priamo na aute.
 3. Zapíšeme niekoľko jázd s rôznou rýchlosťou a zmeriame, kde auto zastavilo.

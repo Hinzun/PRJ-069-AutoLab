@@ -2,6 +2,8 @@
 
 PlatformIO projekt pre ESP32 (Arduino C++). Správanie opisuje [špecifikácia](../docs/specifikacia.md).
 
+> **Platí iba pre pôvodnú verziu s ESP32.** Výber projektu je otvorený, pozri [stav projektu](../docs/stav-projektu.md).
+>
 > **Stav:** kód sa skompiluje pre obe autá a logika aj stránka prešli testami na PC. Na skutočnom ESP32, motoroch a senzore zatiaľ **neboli vyskúšané**.
 
 | Súbor | Čo robí |

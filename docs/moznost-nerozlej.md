@@ -51,7 +51,7 @@ Senzor čiary a gyroskop sú súčasťou auta. Treba však napísať riadenie po
 
 ## Prvý test
 
-Spravíme ho pred tlačou nádoby.
+Spravíme ho pred tlačou nádoby. Kto ho spraví: TODO. Čo treba najprv skontrolovať na autách, je v [stave projektu](stav-projektu.md#čo-overiť-na-požičaných-autách).
 
 1. Vyrobíme kartónový podnos, položíme naň loptičku a z izolačnej pásky nalepíme krátku čiaru.
 2. Pustíme pokojnú a trhanú jazdu a zapíšeme čas, hodnoty z gyroskopu a to, či loptička spadla.

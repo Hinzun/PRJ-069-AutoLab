@@ -4,7 +4,7 @@ Tímový projekt predmetu **Systémové myslenie v IT a digitálna fabrikácia (
 
 **Pôvodný návrh:** dve autíčka s 3D tlačeným podvozkom a ESP32, ovládané z mobilu cez webovú stránku, ktorú podáva samotné auto. Auto zabrzdí pred prekážkou aj pred autom idúcim vpredu a zastaví pri strate spojenia.
 
-**Výber projektu je otvorený (5. 11. 2026).** Cvičiaci odporučil použiť požičané mBot2 namiesto kúpy dielov, takže nákup dielov je pozastavený. Možnosti [Nerozlej](docs/moznost-nerozlej.md) a [Brzdná výzva](docs/moznost-brzdna-vyzva.md) sú neschválené návrhy. Nepovažuj žiadnu za vybranú, kým to tím nepotvrdí.
+**Výber projektu je otvorený (5. 11. 2026).** Cvičiaci odporučil použiť požičané mBot2 namiesto kúpy dielov, takže nákup dielov je pozastavený. Možnosti [Nerozlej](docs/moznost-nerozlej.md) a [Brzdná výzva](docs/moznost-brzdna-vyzva.md) sú neschválené návrhy. Nepovažuj žiadnu za vybranú, kým to tím nepotvrdí. **Začni v [docs/stav-projektu.md](docs/stav-projektu.md)**, sú tam aktuálne rozhodnutia a ďalšie kroky.
 
 ## Cieľ tímu: prejsť (známka E/D)
 
@@ -20,6 +20,7 @@ Tímový projekt predmetu **Systémové myslenie v IT a digitálna fabrikácia (
 | [docs/specifikacia.md](docs/specifikacia.md) | **zdroj pravdy pre firmvér a stránku:** systémový pohľad, architektúra, režimy, bezpečnosť, JSON protokol, parametre, UI |
 | [docs/README.md](docs/README.md) | mapa dokumentácie podľa SDLC fáz a kto ju má na starosti |
 | [docs/testovaci-protokol.md](docs/testovaci-protokol.md) | akceptačné testy G1–G6 a tabuľka výsledkov |
+| [docs/stav-projektu.md](docs/stav-projektu.md) | **aktuálny stav:** čo platí, možnosti, čo overiť, ďalšie kroky, rozhodnutia |
 | [docs/cesta-projektu.md](docs/cesta-projektu.md) | priebežný záznam pokusov, zlyhaní a rozhodnutí |
 | [docs/zachytavanie-prace.md](docs/zachytavanie-prace.md) | čo má tím zachytávať počas práce a ako to prepísať do denníka |
 | [docs/prezentacia.md](docs/prezentacia.md) | kostra finálnej prezentácie: biznisový obrázok, aktuálny stav, plán vs. dodané |

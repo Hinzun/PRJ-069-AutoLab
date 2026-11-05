@@ -3,7 +3,9 @@
 Tímový projekt predmetu **Systémové myslenie v IT a digitálna fabrikácia (SMVIT / STHDF)**, FIIT STU, 2026/2027.
 ID projektu: `PRJ_069_ST21_ST22_ST23_ST32`.
 
-Dve malé autíčka s 3D tlačeným podvozkom a ESP32. Každé auto vytvorí vlastnú Wi-Fi sieť a v mobile zobrazí webovú stránku. Cez ňu ho používateľ riadi joystickom a za jazdy mení jeho parametre. Auto samo zastaví pred prekážkou, pred autom idúcim pred ním aj pri strate spojenia.
+> **Výber projektu je otvorený a nákup dielov je pozastavený.** Cvičiaci odporučil použiť požičané mBot2. Začni v [stave projektu](docs/stav-projektu.md).
+
+**Pôvodný návrh:** dve malé autíčka s 3D tlačeným podvozkom a ESP32. Každé auto vytvorí vlastnú Wi-Fi sieť a v mobile zobrazí webovú stránku. Cez ňu ho používateľ riadi joystickom a za jazdy mení jeho parametre. Auto samo zastaví pred prekážkou, pred autom idúcim pred ním aj pri strate spojenia.
 
 ## Tím
 
@@ -25,6 +27,8 @@ PRJ-069-AutoLab/
 └── docs/       # návrh zadania, SDLC dokumentácia, protokol testov, fotky
 ```
 
+- [Stav projektu](docs/stav-projektu.md): čo platí, aké sú možnosti a čo sa robí ďalej
+- [Cesta projektu](docs/cesta-projektu.md): čo sme skúšali, čo nevyšlo a prečo sme to zmenili
 - [Návrh zadania](docs/navrh-zadania.md): rozsah, požiadavky, hardvér, harmonogram, rozdelenie práce
 - [Technická špecifikácia](docs/specifikacia.md): ako auto funguje (režimy, bezpečnosť, protokol, parametre, stránka)
 - [Dokumentácia podľa SDLC](docs/README.md)

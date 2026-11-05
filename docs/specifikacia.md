@@ -3,6 +3,8 @@
 Ako AutoLab funguje: systémový pohľad, architektúra, firmvér, komunikácia, parametre a webová stránka.
 Čo robíme a prečo (rozsah, požiadavky, akceptačné testy, hardvér, harmonogram, role) je v [návrhu zadania](navrh-zadania.md).
 
+> **Platí iba pre pôvodnú verziu s ESP32.** Výber projektu je otvorený, pozri [stav projektu](stav-projektu.md).
+>
 > Vychádza z AI konceptu kolegu (PDF, október 2026). Koncept sme posúdili ([návrh zadania, kap. 4](navrh-zadania.md#4-posúdenie-ai-špecifikácie)), opravili chyby a zúžili ho na dohodnutý rozsah. Platí táto verzia, PDF už nepoužívame.
 
 ## 1. Rozsah v skratke

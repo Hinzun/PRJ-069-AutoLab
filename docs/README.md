@@ -25,6 +25,7 @@ Zvažované alternatívy, zatiaľ neschválené:
 
 ## Cesta projektu a prezentácia
 
+- [Stav projektu](stav-projektu.md): čo platí, aké sú možnosti a čo sa robí ďalej
 - [Cesta projektu](cesta-projektu.md): čo sme skúšali, čo nevyšlo a prečo sme to zmenili
 - [Čo zachytávať počas práce](zachytavanie-prace.md): pomôcka pre tím a prepis do denníka aktivít
 - [Podklady k finálnej prezentácii](prezentacia.md): biznisový obrázok, aktuálny stav, plán vs. dodané

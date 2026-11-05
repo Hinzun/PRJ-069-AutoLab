@@ -3,7 +3,7 @@
 > **Stav:** zapracované rozhodnutia tímu (kapitola 10), 29. 10. 2026; harmonogram a hardvér aktualizované 5. 11. 2026. Nie je to odovzdávaný výstup.
 > Project Summary je z neho vyplnené v osobných repozitároch členov.
 >
-> **Upozornenie (5. 11. 2026):** výber projektu je otvorený. Cvičiaci odporučil použiť požičané mBot2 namiesto kúpy dielov, preto je **nákup dielov pozastavený**, kým sa tím nerozhodne. Tento návrh opisuje pôvodnú verziu s ESP32. Možnosti sú v [mape dokumentácie](README.md#možnosti-projektu).
+> **Upozornenie (5. 11. 2026):** výber projektu je otvorený. Cvičiaci odporučil použiť požičané mBot2 namiesto kúpy dielov, preto je **nákup dielov pozastavený**, kým sa tím nerozhodne. Tento návrh opisuje pôvodnú verziu s ESP32. Aktuálny stav a možnosti sú v [stave projektu](stav-projektu.md).
 
 ## 1. Zhrnutie
 
@@ -98,7 +98,7 @@ Archív ([sthdf-archiv](https://agnicoli.org/_sub/prod/images/STHDF-Dashboarh/st
 - **Model volejbalového trenažéra:** 2022
 - **Dávkovač nápojov:** 2022
 
-Minuloročné stránky projektov (2025/26) sú zväčša nevyplnené šablóny, inšpiráciu z nich nevytiahneme.
+Zo stránok projektov ročníka 2025/26 je približne 19 z 30 vyplnených a 11 sú prázdne šablóny (stav 5. 11. 2026). Inšpiráciou môžu byť napríklad LED Piano Trainer, SmartClock alebo PixelPet.
 
 **Záver:** AutoLab (4 ľudia, 2 autá) je rozsahom primeraný, skôr na vyššej strane priemeru. Netreba ho zväčšovať, skôr osekať.
 
@@ -144,7 +144,7 @@ Menšie výhrady:
 ### 4.3 Čo v špecifikácii chýba
 
 1. **Prečo to robíme (Business):** problém, používateľ, hodnota. Pitch aj Project Summary to vyžadujú.
-   - Lacný príbeh: *AutoLab ako lacná učebná pomôcka (≈ 35 € na auto), na ktorej si stredoškoláci „ohmatajú“ spätnú väzbu a ladenie parametrov.*
+   - Lacný príbeh: *AutoLab ako lacná učebná pomôcka (≈ 20–23 € na auto), na ktorej si stredoškoláci „ohmatajú“ spätnú väzbu a ladenie parametrov.*
    - Nadväzuje na KNIFE K000059 (STEM a Makerspace).
 2. **Mapovanie na výstupy predmetu:** SDLC fázy, 7Ds, EA diagramy a KNIFE každého člena (kapitola 9).
 3. **Evidencia práce:** kto, kedy, čo urobil. Hodnotí sa priamo a nikde v špecifikácii nie je.
@@ -216,7 +216,7 @@ Konkrétne produkty, odkazy a overené ceny sú v [nákupnom zozname](../hardwar
 | mini nepájivé pole, dupont káble, kondenzátor 1000 µF | 1 | 2 |
 | 3D tlačený podvozok (PETG, SmartLab) | 1 | ≈ 1 |
 | USB kábel + powerbanka (vlastná) | 1 | 0 |
-| **Spolu** | | **≈ 15–20** |
+| **Spolu** (pôvodný odhad, platí ≈ 20–23 € z nákupného zoznamu) | | **≈ 15–20** |
 
 **Podľa cien overených 5. 11. vychádzajú dve autá na ≈ 40–45 €, teda ≈ 10–11 € na osobu** (pôvodný návrh ≈ 20–25 € na osobu). Ak SmartLab niečo požičia, bude to menej. Senzory čiary pridajú ≈ 3 € na auto, ak budeme robiť LINE.
 

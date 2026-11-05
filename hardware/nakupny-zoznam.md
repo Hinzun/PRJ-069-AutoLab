@@ -1,5 +1,7 @@
 # Nákupný zoznam na 2 autá
 
+> **Nákup je pozastavený, zatiaľ nič neobjednávajte.** Tento zoznam platí iba pre pôvodnú verziu s ESP32. Pozri [stav projektu](../docs/stav-projektu.md).
+
 Ceny a sklad sme overili na stránkach obchodov 5. 11. 2026. Pred objednaním ich skontroluj, menia sa. Ceny sú s DPH.
 
 **Spolu ≈ 40–45 €, teda ≈ 10–11 € na osobu.** Navyše treba len skrutky M3 a filament.
