@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AutoLab</title>
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    --bg: #14171a; --card: #1f2428; --line: #363d44; --text: #eef1f3; --muted: #a2acb5;
+    --accent: #4ea1ff; --danger: #e5393b; --warn: #f2a93b; --ok: #3ecf7a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  header {
+    position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 12px;
+    padding: 10px 16px; background: var(--bg); border-bottom: 1px solid var(--line);
+  }
+  #conn { flex: 1; font-size: 14px; color: var(--muted); }
+  #conn::before {
+    content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 8px;
+    border-radius: 50%; background: var(--danger);
+  }
+  #conn.on::before { background: var(--ok); }
+  #stop {
+    padding: 14px 32px; border: 0; border-radius: 8px; background: var(--danger); color: #fff;
+    font-size: 20px; font-weight: 700; letter-spacing: 1px; cursor: pointer;
+  }
+  #stop:active { filter: brightness(.8); }
+  #outage { display: none; padding: 8px 16px; background: var(--danger); color: #fff; font-weight: 600; }
+  #outage.show { display: block; }
+  main { display: grid; gap: 12px; padding: 12px 16px 24px; }
+  @media (min-width: 900px) {
+    main { grid-template-columns: repeat(3, 1fr); align-items: start; max-width: 1200px; margin: auto; }
+  }
+  section { padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+  h2 { margin: 0 0 12px; font-size: 16px; }
+  .modes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+  .modes button {
+    padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: transparent;
+    color: var(--text); font-size: 15px; font-weight: 600; cursor: pointer;
+  }
+  .modes button.active { background: var(--accent); border-color: var(--accent); color: #06121f; }
+  #pad {
+    position: relative; width: min(100%, 280px); aspect-ratio: 1; margin: auto; border-radius: 50%;
+    background: #15191c; border: 2px solid var(--line); touch-action: none; user-select: none;
+    -webkit-user-select: none;
+  }
+  #pad.off { opacity: .4; }
+  #knob {
+    position: absolute; left: 50%; top: 50%; width: 30%; height: 30%; margin: -15% 0 0 -15%;
+    border-radius: 50%; background: var(--accent); pointer-events: none;
+  }
+  .hint { margin: 10px 0 0; text-align: center; font-size: 14px; color: var(--muted); }
+  .param { margin-bottom: 18px; }
+  .param label { display: flex; justify-content: space-between; font-weight: 600; }
+  .param output { font-variant-numeric: tabular-nums; }
+  .param input { width: 100%; margin: 8px 0 2px; }
+  .param small { color: var(--muted); }
+  #defaults {
+    width: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 8px;
+    background: transparent; color: var(--text); font-size: 15px; cursor: pointer;
+  }
+  dl { display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+  #alert { display: none; margin-top: 12px; padding: 10px; border-radius: 8px; background: var(--warn); color: #201400; font-weight: 600; }
+  #alert.show { display: block; }
+</style>
+</head>
+<body>
+<header>
+  <div id="conn">Pripájam…</div>
+  <button id="stop">STOP</button>
+</header>
+<div id="outage">Spojenie s autom je prerušené. Skúšam sa znova pripojiť…</div>
+
+<main>
+  <section>
+    <h2>Jazda</h2>
+    <div class="modes">
+      <button data-mode="stop">STOP</button>
+      <button data-mode="manual">MANUAL</button>
+    </div>
+    <div id="pad" class="off"><div id="knob"></div></div>
+    <p class="hint" id="padHint">Na jazdu zapni režim MANUAL.</p>
+  </section>
+
+  <section>
+    <h2>Nastavenia</h2>
+    <div id="params"></div>
+    <button id="defaults">Obnoviť predvolené</button>
+  </section>
+
+  <section>
+    <h2>Stav</h2>
+    <dl>
+      <dt>Režim</dt><dd id="sMode">–</dd>
+      <dt>Vzdialenosť</dt><dd id="sCm">–</dd>
+      <dt>PWM ľavý motor</dt><dd id="sL">–</dd>
+      <dt>PWM pravý motor</dt><dd id="sR">–</dd>
+    </dl>
+    <div id="alert"></div>
+  </section>
+</main>
+
+<script>
+"use strict";
+
+const PARAMS = [
+  { key: "max_pwm", name: "Maximálna rýchlosť", unit: "PWM", min: 50, max: 255, help: "Sila motorov na plný joystick." },
+  { key: "trim", name: "Vyrovnanie motorov", unit: "PWM", min: -30, max: 30, help: "Zmeň, ak auto nejde rovno." },
+  { key: "stop_cm", name: "Vzdialenosť zastavenia", unit: "cm", min: 5, max: 50, help: "Pri tejto vzdialenosti auto zabrzdí." },
+];
+const PING_MS = 250, RECONNECT_MS = 1000, DRIVE_MS = 50;
+
+const $ = (id) => document.getElementById(id);
+let ws = null, mode = null;
+let joy = { x: 0, y: 0 }, lastSent = { x: 0, y: 0 }, lastDriveTime = 0;
+const keys = new Set();
+
+// --- spojenie ---
+
+function send(message) {
+  if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify(message));
+}
+
+function connect() {
+  ws = new WebSocket(`ws://${location.host}/ws`);
+  ws.onopen = () => setConnected(true);
+  ws.onmessage = (event) => {
+    let message;
+    try { message = JSON.parse(event.data); } catch { return; }
+    if (message.type === "state") showState(message);
+    if (message.type === "params") showParams(message);
+  };
+  ws.onclose = () => {
+    setConnected(false);
+    setTimeout(connect, RECONNECT_MS);
+  };
+}
+
+function setConnected(connected) {
+  $("conn").textContent = connected ? "Pripojené" : "Bez spojenia";
+  $("conn").classList.toggle("on", connected);
+  $("outage").classList.toggle("show", !connected);
+  if (!connected) {
+    mode = null;
+    resetJoystick();
+    updateModeButtons();
+  }
+}
+
+setInterval(() => send({ type: "ping" }), PING_MS);
+
+// --- stav, ktorý potvrdilo auto ---
+
+function showState(state) {
+  const wasManual = mode === "MANUAL";
+  mode = state.mode;
+  if (wasManual && mode !== "MANUAL") resetJoystick();
+  updateModeButtons();
+
+  $("sMode").textContent = state.mode;
+  $("sCm").textContent = state.cm < 0 ? "–" : `${state.cm} cm`;
+  $("sL").textContent = state.pwmL;
+  $("sR").textContent = state.pwmR;
+
+  const alert = $("alert");
+  alert.textContent = state.cm < 0 ? "Senzor vzdialenosti neodpovedá, auto nevidí prekážky."
+    : state.blocked ? "Prekážka – jazda dopredu zablokovaná." : "";
+  alert.classList.toggle("show", alert.textContent !== "");
+}
+
+function updateModeButtons() {
+  document.querySelectorAll(".modes button").forEach((button) => {
+    button.classList.toggle("active", mode !== null && button.dataset.mode.toUpperCase() === mode);
+  });
+  const manual = mode === "MANUAL";
+  $("pad").classList.toggle("off", !manual);
+  $("padHint").textContent = manual ? "Ťahaj prstom alebo myšou, na klávesnici WASD."
+    : "Na jazdu zapni režim MANUAL.";
+}
+
+// --- parametre ---
+
+for (const p of PARAMS) {
+  const box = document.createElement("div");
+  box.className = "param";
+  box.innerHTML = `
+    <label for="p_${p.key}">${p.name} <output id="v_${p.key}">–</output></label>
+    <input id="p_${p.key}" type="range" min="${p.min}" max="${p.max}" step="1" disabled>
+    <small>${p.help} Rozsah ${p.min} až ${p.max} ${p.unit}.</small>`;
+  $("params").append(box);
+
+  const input = box.querySelector("input");
+  input.addEventListener("input", () => {
+    $(`v_${p.key}`).textContent = `${input.value} ${p.unit}`;
+    input.dataset.dragging = "1";
+  });
+  input.addEventListener("change", () => {
+    delete input.dataset.dragging;
+    send({ type: "set", key: p.key, value: Number(input.value) });
+  });
+}
+
+function showParams(values) {
+  for (const p of PARAMS) {
+    const input = $(`p_${p.key}`);
+    input.disabled = false;
+    if (input.dataset.dragging) continue;
+    input.value = values[p.key];
+    $(`v_${p.key}`).textContent = `${values[p.key]} ${p.unit}`;
+  }
+}
+
+$("defaults").addEventListener("click", () => send({ type: "defaults" }));
+
+// --- ovládanie ---
+
+$("stop").addEventListener("click", () => {
+  resetJoystick();
+  send({ type: "stop" });
+});
+
+document.querySelectorAll(".modes button").forEach((button) => {
+  button.addEventListener("click", () => {
+    resetJoystick();
+    send({ type: "mode", value: button.dataset.mode });
+  });
+});
+
+function setJoystick(x, y) {
+  joy = { x, y };
+  $("knob").style.transform = `translate(${x * 118}%, ${-y * 118}%)`;
+  sendDrive(false);
+}
+
+function resetJoystick() {
+  keys.clear();
+  setJoystick(0, 0);
+}
+
+function sendDrive(force) {
+  if (mode !== "MANUAL") {
+    lastSent = { x: 0, y: 0 };  // auto mimo MANUAL povel joysticku zahodilo
+    return;
+  }
+  const now = performance.now();
+  const centered = joy.x === 0 && joy.y === 0;
+  if (!force && !centered && now - lastDriveTime < DRIVE_MS) return;
+  if (joy.x === lastSent.x && joy.y === lastSent.y) return;
+  lastDriveTime = now;
+  lastSent = { ...joy };
+  send({ type: "drive", x: +joy.x.toFixed(2), y: +joy.y.toFixed(2) });
+}
+
+// Dobehne poslednú polohu joysticku, ktorá sa nezmestila do intervalu odosielania.
+setInterval(() => sendDrive(true), DRIVE_MS);
+
+const pad = $("pad");
+
+function joystickFromPointer(event) {
+  const box = pad.getBoundingClientRect();
+  const radius = box.width / 2;
+  let x = (event.clientX - box.left - radius) / radius;
+  let y = (radius - (event.clientY - box.top)) / radius;
+  const length = Math.hypot(x, y);
+  if (length > 1) { x /= length; y /= length; }
+  setJoystick(x, y);
+}
+
+pad.addEventListener("pointerdown", (event) => {
+  if (mode !== "MANUAL") return;
+  pad.setPointerCapture(event.pointerId);
+  joystickFromPointer(event);
+});
+pad.addEventListener("pointermove", (event) => {
+  if (pad.hasPointerCapture(event.pointerId)) joystickFromPointer(event);
+});
+pad.addEventListener("pointerup", resetJoystick);
+pad.addEventListener("pointercancel", resetJoystick);
+
+function joystickFromKeys() {
+  const x = (keys.has("d") ? 1 : 0) - (keys.has("a") ? 1 : 0);
+  const y = (keys.has("w") ? 1 : 0) - (keys.has("s") ? 1 : 0);
+  setJoystick(x, y);
+}
+
+window.addEventListener("keydown", (event) => {
+  const key = event.key.toLowerCase();
+  if (!"wasd".includes(key) || key.length !== 1 || event.repeat || mode !== "MANUAL") return;
+  keys.add(key);
+  joystickFromKeys();
+});
+window.addEventListener("keyup", (event) => {
+  if (keys.delete(event.key.toLowerCase())) joystickFromKeys();
+});
+window.addEventListener("blur", resetJoystick);
+
+connect();
+</script>
+</body>
+</html>

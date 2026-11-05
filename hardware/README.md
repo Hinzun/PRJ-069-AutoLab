@@ -1,6 +1,6 @@
 # Hardvér
 
-Sem patrí 3D model podvozku (zdrojový súbor z Onshape alebo Fusion 360 a STL na tlač), schéma zapojenia a fotky. Zoznam dielov a zapojenie pinov sú v [návrhu zadania](../docs/navrh-zadania.md), kapitola 6.
+Sem patrí 3D model podvozku (zdrojový súbor z Onshape alebo Fusion 360 a STL na tlač), schéma zapojenia a fotky. Čo kúpiť a ako napájať auto je v [nákupnom zozname](nakupny-zoznam.md), zapojenie pinov v [návrhu zadania](../docs/navrh-zadania.md), kapitola 6.
 
 Zodpovedá: Branislav Bučko.
 

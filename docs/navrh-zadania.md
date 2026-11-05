@@ -1,15 +1,17 @@
 # PRJ069 AutoLab – návrh zadania
 
-> **Stav:** zapracované rozhodnutia tímu (kapitola 10), 29. 10. 2026. Nie je to odovzdávaný výstup.
+> **Stav:** zapracované rozhodnutia tímu (kapitola 10), 29. 10. 2026; harmonogram a hardvér aktualizované 5. 11. 2026. Nie je to odovzdávaný výstup.
 > Project Summary je z neho vyplnené v osobných repozitároch členov.
+>
+> **Upozornenie (5. 11. 2026):** výber projektu je otvorený. Cvičiaci odporučil použiť požičané mBot2 namiesto kúpy dielov, preto je **nákup dielov pozastavený**, kým sa tím nerozhodne. Tento návrh opisuje pôvodnú verziu s ESP32. Možnosti sú v [mape dokumentácie](README.md#možnosti-projektu).
 
 ## 1. Zhrnutie
 
 - **Téma AutoLab je dobrá a technicky zväčša správna.** Sedí aj na predmet: auto je uzavretá spätná väzba (snímanie → rozhodnutie → akcia) a 3D tlačený podvozok pokrýva digitálnu fabrikáciu.
 - **AI špecifikácia je technický návrh, nie dokumentácia pre predmet.** Chýba v nej to, za čo dostaneme body: KNIFE, priebežná evidencia práce, SDLC / 7Ds dokumentácia a EA model. Je to dobrý vstup, z ktorého tieto výstupy poskladáme.
-- **Harmonogram v špecifikácii je nereálny.** Počíta s 13 týždňami, ale sme v 7. týždni semestra. Do decembrovej prezentácie zostáva asi 6 týždňov.
+- **Harmonogram v špecifikácii je nereálny.** Počíta s 13 týždňami, ale projekt sme začali až v 7. týždni semestra. Finálna prezentácia bude v januári 2027, presný termín zatiaľ nepoznáme.
 - **Dohodnutý rozsah:** 2 autá, jazda z mobilu, nastaviteľné parametre, zastavenie pred prekážkou a pri strate spojenia. **Autá idúce za sebou do seba nenarazia**, a to bez vzájomnej komunikácie, len vďaka prednému senzoru. Sledovanie čiary len ak zostane čas.
-- **Hardvér zjednodušený a zlacnený** (kapitola 6): napájanie z vlastnej powerbanky namiesto Li-ion článkov, lacnejší driver motorov. Cena klesne z ≈ 35–40 € na **≈ 15–20 € na auto** a odpadne riziko požiaru. Zároveň sú opravené hardvérové chyby špecifikácie (kapitola 4.2).
+- **Hardvér zjednodušený a zlacnený** (kapitola 6): napájanie z vlastnej powerbanky namiesto Li-ion článkov, lacnejší driver motorov. Cena klesne z ≈ 35–40 € na **≈ 20–23 € na auto** ([nákupný zoznam](../hardware/nakupny-zoznam.md)) a odpadne riziko požiaru. Zároveň sú opravené hardvérové chyby špecifikácie (kapitola 4.2).
 
 ## 2. Čo od nás predmet reálne chce
 
@@ -131,7 +133,7 @@ Minuloročné stránky projektov (2025/26) sú zväčša nevyplnené šablóny, 
 | P1 | Harmonogram T1–T13 | sme v 7. týždni, presunulo by to demo do januára | nový plán v kapitole 7 |
 | P2 | Objednávka z Číny (AliExpress) | dodanie 2–4 týždne, to si už nemôžeme dovoliť | kupovať lokálne (LaskaKit, Botland, techfun.sk, GME), dodanie za 2–5 dní |
 
-> Po zjednodušení hardvéru (kapitola 6) odpadajú H3, H4 a F4: driver DRV8833 nemá STBY, powerbanka nahrádza Li-ion články a batériu nemeriame.
+> Po zjednodušení hardvéru (kapitola 6) odpadajú H3, H4 a F4: pin `nSLEEP` na DRV8833 je pripojený natrvalo na HIGH a motory štartujú z vypnutých pinov, powerbanka nahrádza Li-ion články a batériu nemeriame.
 
 Menšie výhrady:
 
@@ -194,13 +196,15 @@ G6 je zároveň pekná ukážka systémového myslenia: brzdná dráha závisí 
 | Zmena | Úspora | Prečo |
 |---|---|---|
 | **Napájanie z powerbanky (5 V USB)** namiesto 2× 18650 + držiak + menič + nabíjačka + delič | ≈ 12–15 € na auto + nabíjačka | powerbanku má každý; TT motory sú na 3–6 V, takže 5 V im sedí; odpadá Li-ion riziko a meranie batérie |
-| **Driver DRV8833** namiesto TB6612FNG | ≈ 1–2 € na auto | stačí na TT motory, má len 4 riadiace piny a vie brzdiť; odpadá aj problém so STBY (H3) |
-| **HC-SR04P / RCWL-1601** (3–5,5 V) namiesto HC-SR04 | 0 € (rovnaká cena) | funguje na 3,3 V bez deliča (H2) |
+| **Driver DRV8833** namiesto TB6612FNG | ≈ 1–2 € na auto | stačí na TT motory, má len 4 riadiace piny a vie brzdiť; `nSLEEP` treba mať na HIGH (H3) |
+| **HC-SR04 na 5 V s deličom na ECHO** | 0 € | HC-SR04P ani RCWL-1601 sme v overených obchodoch nenašli, delič z 3 rezistorov je lacnejší ako ďalšia doprava (H2) |
 | **Senzory čiary kúpiť až neskôr**, ak bude čas na LINE | ≈ 3 € na auto | sú len *Should* |
 | **Malé nepájivé pole** namiesto pájanej dosky alebo svorkovnice | ≈ 2–3 € na auto | stačí na demo |
 | **Spýtať sa v SmartLabe**, či nepožičajú ESP32, motory alebo senzory | potenciálne väčšina ceny | laboratórium dronov a AI pravdepodobne má zásobu súčiastok |
 
-### Diely na jedno auto (orientačné ceny, overiť pri objednávke)
+### Diely na jedno auto
+
+Konkrétne produkty, odkazy a overené ceny sú v [nákupnom zozname](../hardware/nakupny-zoznam.md). Tabuľka nižšie je pôvodný odhad z 29. 10.
 
 | Diel | Ks | ≈ € |
 |---|---|---|
@@ -214,7 +218,7 @@ G6 je zároveň pekná ukážka systémového myslenia: brzdná dráha závisí 
 | USB kábel + powerbanka (vlastná) | 1 | 0 |
 | **Spolu** | | **≈ 15–20** |
 
-**Dve autá ≈ 30–40 €, teda ≈ 8–10 € na osobu** (predtým ≈ 20–25 €). Ak SmartLab niečo požičia, bude to ešte menej. Senzory čiary pridajú ≈ 3 € na auto, ak budeme robiť LINE.
+**Podľa cien overených 5. 11. vychádzajú dve autá na ≈ 40–45 €, teda ≈ 10–11 € na osobu** (pôvodný návrh ≈ 20–25 € na osobu). Ak SmartLab niečo požičia, bude to menej. Senzory čiary pridajú ≈ 3 € na auto, ak budeme robiť LINE.
 
 ### Zapojenie (upravené)
 
@@ -222,9 +226,10 @@ G6 je zároveň pekná ukážka systémového myslenia: brzdná dráha závisí 
 |---|---|---|
 | DRV8833 AIN1 / AIN2 (motor L) | GPIO 25 / 26 | PWM na oboch pinoch |
 | DRV8833 BIN1 / BIN2 (motor R) | GPIO 32 / 33 | piny bez zákmitov pri štarte, motory pri zapnutí necuknú |
-| HC-SR04P TRIG / ECHO | GPIO 5 / 18 | napájanie 3,3 V, bez deliča |
+| DRV8833 `nSLEEP` (`EEP`, `SLP`) | 3,3 V | ak ho modul nemá pripojený natrvalo; bez HIGH sú výstupy vypnuté |
+| HC-SR04 TRIG / ECHO | GPIO 5 / 18 | napájanie 5 V; **ECHO cez delič** na ≈ 3,3 V, inak hrozí poškodenie pinu |
 | (Should) senzory čiary L / S / P | GPIO 34 / 35 / 39 | napájanie **3,3 V** (H1) |
-| Napájanie | USB z powerbanky do ESP32; 5 V pin ESP32 (VIN) → VM na DRV8833 | 1000 µF kondenzátor pri VM |
+| Napájanie | powerbanka cez odstrihnutý USB kábel do lišty poľa; z nej VM na DRV8833, 5 V pin ESP32 a VCC senzora | motory nesmú ísť cez diódu na doske ESP32; 1000 µF kondenzátor pri VM; [schéma](../hardware/nakupny-zoznam.md#zapojenie-ktoré-sa-oproti-pôvodnému-návrhu-zmenilo) |
 
 ### Riziká powerbanky a opatrenia
 
@@ -234,16 +239,18 @@ G6 je zároveň pekná ukážka systémového myslenia: brzdná dráha závisí 
 
 ## 7. Harmonogram od teraz
 
-Predpoklad: finálna prezentácia v decembri, možno až v januári. Termín zatiaľ nie je určený, v notebooku sú len minuloročné dátumy (8.–15. 12.) s poznámkou, že sa určia neskôr. Plánujeme na najskorší termín (týždeň od 7. 12.). Ak bude v januári, máme rezervu.
+Finálna prezentácia bude v januári 2027, presný termín zatiaľ nepoznáme. Stav 5. 11.: diely nie sú objednané a ESP32 nemáme. Firmvér a stránka sú napísané a otestované na PC, na hardvéri ich treba overiť.
 
 | Týždeň | Termín | Hlavná úloha | Míľnik |
 |---|---|---|---|
-| 8 | 2.–8. 11. | rozhodnúť zadanie, Project Summary cvičiacemu, **objednať diely**, model podvozku v Onshape, kostra stránky na holom ESP32 | Project Summary odovzdané, diely objednané |
-| 9 | 9.–15. 11. | prvá tlač podvozku v SmartLabe, motory + driver na stole, stránka s joystickom na ESP32 | motory sa točia podľa joysticku |
-| 10 | 16.–22. 11. | auto 1 zložené: MANUAL, STOP pri prekážke, STOP pri strate spojenia; začať EA model | **auto 1 spĺňa G1, G3, G4** |
-| 11 | 23.–29. 11. | slidery s parametrami, zložiť auto 2; ak je čas, LINE | obe autá jazdia (G2) |
-| 12 | 30. 11.–6. 12. | testy podľa protokolu, video, dokumentácia SDLC/7Ds, dokončiť KNIFE, slajdy | testy zapísané, prezentácia hotová |
-| 13 | 7.–13. 12. | finálna prezentácia a demo | ✅ |
+| 8 | 2.–8. 11. | ~~objednať diely~~ **pozastavené, kým sa nerozhodneme o mBot2**; Project Summary cvičiacemu, začať model podvozku | rozhodnutie o projekte |
+| 9 | 9.–15. 11. | nahrať firmvér na ESP32, skúsiť stránku z mobilu, otestovať powerbanku, dokončiť model | stránka beží z ESP32 |
+| 10 | 16.–22. 11. | prvá tlač podvozku v SmartLabe, motory + driver + senzor na stole; začať EA model | motory sa točia podľa joysticku |
+| 11 | 23.–29. 11. | auto 1 zložené a odladené | **auto 1 spĺňa G1–G4** |
+| 12 | 30. 11.–6. 12. | zložiť auto 2; ak je čas, LINE | obe autá jazdia |
+| 13 | 7.–13. 12. | testy podľa protokolu (aj G6), video | testy zapísané |
+| 14 – január | od 14. 12. | dokumentácia SDLC/7Ds, EA model, KNIFE, [podklady k prezentácii](prezentacia.md) (podľa cvičiaceho zrejme bez PowerPointu); rezerva na opravy | prezentácia hotová |
+| január | podľa termínu | finálna prezentácia a demo | ✅ |
 
 Pitch už bol. Do sekcie Pitch Presentation v repozitári stačí doplniť, čo sme odprezentovali.
 
@@ -290,6 +297,5 @@ Spoločne: denník aktivít (každý si zapisuje vlastný), testy, video a preze
 
 ### Ešte otvorené
 
-1. Či predbežné rozdelenie rolí v kapitole 8 všetkým vyhovuje.
-2. Čo vie SmartLab požičať (súčiastky, spájkovačka) a kedy môžeme tlačiť.
-3. Či máme powerbanky, ktoré sa pri malom odbere nevypínajú (otestovať s ESP32).
+1. Čo vie SmartLab požičať (súčiastky, spájkovačka) a kedy môžeme tlačiť.
+2. Či máme powerbanky, ktoré sa pri malom odbere nevypínajú (otestovať s ESP32).

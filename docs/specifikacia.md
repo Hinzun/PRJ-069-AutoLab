@@ -25,7 +25,7 @@ flowchart LR
     subgraph S[Hranica systému AutoLab]
         W[Webová stránka v aute<br/>joystick, parametre, stav]
         F[Riadiaci firmvér<br/>režimy, bezpečnosť]
-        SE[Senzor vzdialenosti<br/>HC-SR04P]
+        SE[Senzor vzdialenosti<br/>HC-SR04]
         M[Motory a driver<br/>2× TT motor, DRV8833]
     end
     E[Okolie<br/>prekážky, iné auto, povrch, rušenie Wi-Fi]
@@ -72,10 +72,12 @@ PlatformIO projekt v `firmware/`, rozdelený na súbory podľa [firmware/README.
 
 | Perióda | Úloha |
 |---|---|
-| 20 ms (50 Hz) | vypočítať riadenie a nastaviť motory |
-| 60 ms | zmerať vzdialenosť; `pulseIn` s timeoutom ≈ 4 ms (stačí do 50 cm) alebo meranie cez prerušenie |
+| vždy | spracovať správy zo stránky |
+| 20 ms (50 Hz) | skontrolovať bezpečnosť (prekážka, spojenie), vypočítať riadenie a nastaviť motory |
+| 60 ms | spustiť meranie vzdialenosti; dĺžku ozveny meria prerušenie, takže slučka nečaká |
 | 100 ms | poslať stránke stav |
-| vždy | skontrolovať bezpečnosť (prekážka, spojenie) |
+
+Správy z webservera prichádzajú v inej úlohe FreeRTOS. Web ich preto len odloží do frontu a stav auta mení iba `loop()`.
 
 ### Režimy
 
@@ -92,15 +94,18 @@ Prekážka **neprepína** režim na STOP. Auto len nepustí jazdu dopredu (pozri
 Joystick posiela `x` (zatáčanie) a `y` (dopredu/dozadu), obe v rozsahu −1 až 1. Prepočet na motory:
 
 ```
-L = clamp(y + x, -1, 1) * max_pwm + trim
-R = clamp(y - x, -1, 1) * max_pwm - trim
+L = clamp(y + x, -1, 1) * max_pwm
+R = clamp(y - x, -1, 1) * max_pwm
 ```
 
-`trim` sa pripočíta len keď auto ide (`L ≠ 0` alebo `R ≠ 0`). Výsledok sa oreže na −255 až 255. Zmena PWM je plynulá (rampa), aby powerbanka pri rozjazde nereštartovala ESP32.
+- **Stred joysticku:** hodnoty `x` a `y` do ±0,05 sa berú ako 0.
+- **`trim`** mení silu kolesa, nie smer: k veľkosti `L` sa pripočíta, od veľkosti `R` sa odpočíta, a to pri jazde dopredu aj dozadu. Stojace koleso nerozbehne a smer kolesa neotočí. Výsledok sa oreže na −255 až 255.
+- **Rampa:** PWM rastie najviac o 15 za 20 ms (0 → 255 za asi 0,35 s), aby powerbanka pri rozjazde nereštartovala ESP32. Spomalenie je okamžité a zmena smeru ide cez nulu.
 
 ### Bezpečnosť
 
-- **Prekážka:** ak je vzdialenosť menšia ako `stop_cm` a auto ide dopredu (`L + R > 0`), motory zabrzdia (DRV8833: oba vstupy motora na HIGH). Cúvanie a otáčanie na mieste ostávajú povolené. Platí v každom režime.
+- **Prekážka:** ak je vzdialenosť menšia ako `stop_cm` a joystick velí jazdu dopredu (`L + R > 0` pred pripočítaním `trim`), motory zabrzdia (DRV8833: oba vstupy motora na HIGH). Cúvanie a otáčanie na mieste ostávajú povolené. Platí v každom režime.
+- **Senzor neodpovedá:** ak 300 ms nepríde ozvena, `cm` je −1 a stránka ukáže varovanie. Auto vtedy prekážky nevidí, ale jazdu neblokuje.
 - **Strata spojenia:** stránka posiela `ping` každých 250 ms. Ak 1 s nepríde žiadna správa, auto prejde do STOP.
 - **Po zapnutí** je auto vždy v STOP.
 
@@ -145,6 +150,8 @@ Každá správa je JSON s poľom `type`.
 
 - Auto každú zmenu skontroluje voči rozsahu z kapitoly 7. **Hodnotu mimo rozsahu odmietne** a vždy pošle späť `params` so skutočne platnými hodnotami.
 - Stránka zobrazuje len hodnoty, ktoré potvrdilo auto.
+- `blocked` v `state` znamená, že prekážka je bližšie ako `stop_cm`. `cm` je −1, ak senzor neodpovedá.
+- Režim `line` a správa `save` zatiaľ nie sú implementované, auto ich ignoruje.
 - V režime LINE pribudnú v `state` polia `line` (napr. `[0,1,0]`) a `err`.
 
 ## 7. Parametre
@@ -178,7 +185,7 @@ Najprv po moduloch na stole, potom celé auto:
 | Čo | Ako | Splnené, ak |
 |---|---|---|
 | Motory | testovací program: dopredu, dozadu, otáčanie | obe kolesá sa točia správnym smerom |
-| HC-SR04P | prekážka vo vzdialenosti 10, 20 a 40 cm | chyba do ± 2 cm |
+| HC-SR04 | prekážka vo vzdialenosti 10, 20 a 40 cm | chyba do ± 2 cm |
 | Stránka | pripojenie z 2 rôznych mobilov | joystick aj slidery fungujú |
 | Powerbanka | ESP32 s Wi-Fi a motory 10 min | powerbanka sa nevypne, ESP32 sa nereštartuje |
 
