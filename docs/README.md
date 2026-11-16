@@ -18,10 +18,8 @@ Diagramy kreslíme v Enterprise Architect, každý vo svojom balíku `ST0XX` v t
 
 ## Možnosti projektu
 
-Zvažované alternatívy, zatiaľ neschválené:
-
-- [Nerozlej](moznost-nerozlej.md): robot-čašník na mBot2 vezie loptičku po čiare
-- [Brzdná výzva](moznost-brzdna-vyzva.md): na mBot2 sa súťaží, kto zastaví najbližšie pri prekážke bez dotyku
+- [Nerozlej](moznost-nerozlej.md): robot-čašník na mBot2 vezie loptičku po čiare; **pracovný výber od 16. 11. 2026**, program je v [mbot2/](../mbot2/)
+- [Brzdná výzva](moznost-brzdna-vyzva.md): na mBot2 sa súťaží, kto zastaví najbližšie pri prekážke bez dotyku; odložené
 
 ## Cesta projektu a prezentácia
 
@@ -43,3 +41,5 @@ Zvažované alternatívy, zatiaľ neschválené:
 | 5. 11. 2026 | harmonogram posunutý, prezentácia v januári 2027 | termín prezentácie, diely ešte neboli objednané |
 | 5. 11. 2026 | cvičiaci odporučil použiť požičané mBot2 namiesto kúpy dielov | netreba zbytočne míňať vlastné peniaze; výber projektu je zatiaľ otvorený |
 | 5. 11. 2026 | nákup dielov pozastavený | kým sa tím nerozhodne, či ostane pri ESP32, alebo prejde na mBot2 |
+| 16. 11. 2026 | pracujeme na Nerozlej s požičaným mBot2 namiesto vlastného auta s ESP32 | netreba kupovať diely; cvičiaci nemá námietky, formálne potvrdenie tímom chýba |
+| 16. 11. 2026 | Nerozlej má jednu nádobu namiesto 2 až 3 hĺbok | jadrom sú nastavenia jazdy, obtiažnosť dávajú parametre a trasa |
