@@ -8,7 +8,7 @@ Stačí pár minút po každom kuse práce. Na konci semestra sa to už spätne 
 |---|---|
 | vznikne nová verzia dielu alebo auta | fotku a jednu vetu, čo sa zmenilo a prečo |
 | niečo nefunguje | čo sa stalo, foto alebo krátke video, čo si skúsil a ako to dopadlo |
-| testujete | dátum, nastavenia a výsledok do [protokolu testov](testovaci-protokol.md) |
+| testujete | dátum, nastavenia a výsledok do [cesty projektu](cesta-projektu.md); akceptačné testy sú v [Nerozlej](moznost-nerozlej.md#akceptačné-testy) |
 | tlačíte v 3D | fotku, nastavenia tlače a čas tlače |
 | sa niečo rozhodne | čo ste vybrali, čo ste odmietli a prečo |
 | niekto mimo tímu skúsi projekt | čo povedal a čo sa mu nepáčilo |

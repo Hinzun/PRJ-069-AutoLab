@@ -1,6 +1,8 @@
 # Možnosť projektu: Brzdná výzva
 
-> **Stav:** návrh z 5. 11. 2026. Tím ani cvičiaci ho zatiaľ neschválili a na aute sa zatiaľ nič z neho neskúšalo. Je to alternatíva, doterajší [návrh zadania](navrh-zadania.md) a [špecifikácia](specifikacia.md) platia bez zmeny, kým sa tím nerozhodne inak.
+> **Archív (16. 11. 2026):** odložená možnosť, ďalej sa neupravuje. Tím pracuje na [Nerozlej](../docs/moznost-nerozlej.md), pozri [archív](../archiv/README.md).
+
+> **Stav:** návrh z 5. 11. 2026. Tím ani cvičiaci ho zatiaľ neschválili a na aute sa zatiaľ nič z neho neskúšalo. Je to alternatíva, doterajší [návrh zadania](esp32/navrh-zadania.md) a [špecifikácia](esp32/specifikacia.md) platia bez zmeny, kým sa tím nerozhodne inak.
 
 ## Myšlienka
 
@@ -49,7 +51,7 @@ Kamera, Wi-Fi a mobil. Rebríček výsledkov je len voliteľný.
 
 ## Prvý test
 
-Kto ho spraví: TODO. Čo treba najprv skontrolovať na autách, je v [stave projektu](stav-projektu.md#čo-overiť-na-požičaných-autách).
+Kto ho spraví: TODO. Čo treba najprv skontrolovať na autách, je v [stave projektu](../docs/stav-projektu.md#čo-overiť-na-požičaných-autách).
 
 1. Nahráme krátky program, v ktorom auto zastaví pred stenou.
 2. Skúsime zmeniť vzdialenosť zastavenia priamo na aute.
@@ -70,4 +72,4 @@ Kto ho spraví: TODO. Čo treba najprv skontrolovať na autách, je v [stave pro
 2. Koľko mBotov s ultrazvukom dostaneme?
 3. Súhlasí cvičiaci, že 3D tlač bude len nárazník a zadná doska?
 
-Porovnanie s ostatnými možnosťami je v [moznost-nerozlej.md](moznost-nerozlej.md).
+Porovnanie s ostatnými možnosťami je v [moznost-nerozlej.md](../docs/moznost-nerozlej.md).

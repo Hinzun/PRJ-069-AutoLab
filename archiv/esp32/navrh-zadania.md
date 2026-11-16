@@ -1,9 +1,11 @@
 # PRJ069 AutoLab – návrh zadania
 
+> **Archív (16. 11. 2026):** odložená možnosť, ďalej sa neupravuje. Tím pracuje na [Nerozlej](../../docs/moznost-nerozlej.md), pozri [archív](../../archiv/README.md).
+
 > **Stav:** zapracované rozhodnutia tímu (kapitola 10), 29. 10. 2026; harmonogram a hardvér aktualizované 5. 11. 2026. Nie je to odovzdávaný výstup.
 > Project Summary je z neho vyplnené v osobných repozitároch členov.
 >
-> **Upozornenie (5. 11. 2026):** výber projektu je otvorený. Cvičiaci odporučil použiť požičané mBot2 namiesto kúpy dielov, preto je **nákup dielov pozastavený**, kým sa tím nerozhodne. Tento návrh opisuje pôvodnú verziu s ESP32. Aktuálny stav a možnosti sú v [stave projektu](stav-projektu.md).
+> **Upozornenie (5. 11. 2026):** výber projektu je otvorený. Cvičiaci odporučil použiť požičané mBot2 namiesto kúpy dielov, preto je **nákup dielov pozastavený**, kým sa tím nerozhodne. Tento návrh opisuje pôvodnú verziu s ESP32. Aktuálny stav a možnosti sú v [stave projektu](../../docs/stav-projektu.md).
 
 ## 1. Zhrnutie
 
@@ -11,7 +13,7 @@
 - **AI špecifikácia je technický návrh, nie dokumentácia pre predmet.** Chýba v nej to, za čo dostaneme body: KNIFE, priebežná evidencia práce, SDLC / 7Ds dokumentácia a EA model. Je to dobrý vstup, z ktorého tieto výstupy poskladáme.
 - **Harmonogram v špecifikácii je nereálny.** Počíta s 13 týždňami, ale projekt sme začali až v 7. týždni semestra. Finálna prezentácia bude v januári 2027, presný termín zatiaľ nepoznáme.
 - **Dohodnutý rozsah:** 2 autá, jazda z mobilu, nastaviteľné parametre, zastavenie pred prekážkou a pri strate spojenia. **Autá idúce za sebou do seba nenarazia**, a to bez vzájomnej komunikácie, len vďaka prednému senzoru. Sledovanie čiary len ak zostane čas.
-- **Hardvér zjednodušený a zlacnený** (kapitola 6): napájanie z vlastnej powerbanky namiesto Li-ion článkov, lacnejší driver motorov. Cena klesne z ≈ 35–40 € na **≈ 20–23 € na auto** ([nákupný zoznam](../hardware/nakupny-zoznam.md)) a odpadne riziko požiaru. Zároveň sú opravené hardvérové chyby špecifikácie (kapitola 4.2).
+- **Hardvér zjednodušený a zlacnený** (kapitola 6): napájanie z vlastnej powerbanky namiesto Li-ion článkov, lacnejší driver motorov. Cena klesne z ≈ 35–40 € na **≈ 20–23 € na auto** ([nákupný zoznam](hardware/nakupny-zoznam.md)) a odpadne riziko požiaru. Zároveň sú opravené hardvérové chyby špecifikácie (kapitola 4.2).
 
 ## 2. Čo od nás predmet reálne chce
 
@@ -204,7 +206,7 @@ G6 je zároveň pekná ukážka systémového myslenia: brzdná dráha závisí 
 
 ### Diely na jedno auto
 
-Konkrétne produkty, odkazy a overené ceny sú v [nákupnom zozname](../hardware/nakupny-zoznam.md). Tabuľka nižšie je pôvodný odhad z 29. 10.
+Konkrétne produkty, odkazy a overené ceny sú v [nákupnom zozname](hardware/nakupny-zoznam.md). Tabuľka nižšie je pôvodný odhad z 29. 10.
 
 | Diel | Ks | ≈ € |
 |---|---|---|
@@ -229,7 +231,7 @@ Konkrétne produkty, odkazy a overené ceny sú v [nákupnom zozname](../hardwar
 | DRV8833 `nSLEEP` (`EEP`, `SLP`) | 3,3 V | ak ho modul nemá pripojený natrvalo; bez HIGH sú výstupy vypnuté |
 | HC-SR04 TRIG / ECHO | GPIO 5 / 18 | napájanie 5 V; **ECHO cez delič** na ≈ 3,3 V, inak hrozí poškodenie pinu |
 | (Should) senzory čiary L / S / P | GPIO 34 / 35 / 39 | napájanie **3,3 V** (H1) |
-| Napájanie | powerbanka cez odstrihnutý USB kábel do lišty poľa; z nej VM na DRV8833, 5 V pin ESP32 a VCC senzora | motory nesmú ísť cez diódu na doske ESP32; 1000 µF kondenzátor pri VM; [schéma](../hardware/nakupny-zoznam.md#zapojenie-ktoré-sa-oproti-pôvodnému-návrhu-zmenilo) |
+| Napájanie | powerbanka cez odstrihnutý USB kábel do lišty poľa; z nej VM na DRV8833, 5 V pin ESP32 a VCC senzora | motory nesmú ísť cez diódu na doske ESP32; 1000 µF kondenzátor pri VM; [schéma](hardware/nakupny-zoznam.md#zapojenie-ktoré-sa-oproti-pôvodnému-návrhu-zmenilo) |
 
 ### Riziká powerbanky a opatrenia
 
@@ -249,7 +251,7 @@ Finálna prezentácia bude v januári 2027, presný termín zatiaľ nepoznáme. 
 | 11 | 23.–29. 11. | auto 1 zložené a odladené | **auto 1 spĺňa G1–G4** |
 | 12 | 30. 11.–6. 12. | zložiť auto 2; ak je čas, LINE | obe autá jazdia |
 | 13 | 7.–13. 12. | testy podľa protokolu (aj G6), video | testy zapísané |
-| 14 – január | od 14. 12. | dokumentácia SDLC/7Ds, EA model, KNIFE, [podklady k prezentácii](prezentacia.md) (podľa cvičiaceho zrejme bez PowerPointu); rezerva na opravy | prezentácia hotová |
+| 14 – január | od 14. 12. | dokumentácia SDLC/7Ds, EA model, KNIFE, [podklady k prezentácii](../../docs/prezentacia.md) (podľa cvičiaceho zrejme bez PowerPointu); rezerva na opravy | prezentácia hotová |
 | január | podľa termínu | finálna prezentácia a demo | ✅ |
 
 Pitch už bol. Do sekcie Pitch Presentation v repozitári stačí doplniť, čo sme odprezentovali.

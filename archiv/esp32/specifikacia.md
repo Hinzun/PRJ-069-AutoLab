@@ -1,9 +1,11 @@
 # AutoLab – technická špecifikácia
 
+> **Archív (16. 11. 2026):** odložená možnosť, ďalej sa neupravuje. Tím pracuje na [Nerozlej](../../docs/moznost-nerozlej.md), pozri [archív](../../archiv/README.md).
+
 Ako AutoLab funguje: systémový pohľad, architektúra, firmvér, komunikácia, parametre a webová stránka.
 Čo robíme a prečo (rozsah, požiadavky, akceptačné testy, hardvér, harmonogram, role) je v [návrhu zadania](navrh-zadania.md).
 
-> **Platí iba pre pôvodnú verziu s ESP32.** Výber projektu je otvorený, pozri [stav projektu](stav-projektu.md).
+> **Platí iba pre pôvodnú verziu s ESP32.** Výber projektu je otvorený, pozri [stav projektu](../../docs/stav-projektu.md).
 >
 > Vychádza z AI konceptu kolegu (PDF, október 2026). Koncept sme posúdili ([návrh zadania, kap. 4](navrh-zadania.md#4-posúdenie-ai-špecifikácie)), opravili chyby a zúžili ho na dohodnutý rozsah. Platí táto verzia, PDF už nepoužívame.
 
@@ -66,11 +68,11 @@ Rôzne kanály znižujú vzájomné rušenie. Každé auto riadi iný človek z 
 
 ## 4. Hardvér
 
-Zoznam dielov, zapojenie pinov a riziká napájania z powerbanky sú v [návrhu zadania, kap. 6](navrh-zadania.md#6-hardvér-zjednodušený-a-lacnejší). Požiadavky na podvozok sú v [hardware/README.md](../hardware/README.md).
+Zoznam dielov, zapojenie pinov a riziká napájania z powerbanky sú v [návrhu zadania, kap. 6](navrh-zadania.md#6-hardvér-zjednodušený-a-lacnejší). Požiadavky na podvozok sú v [hardware/README.md](hardware/README.md).
 
 ## 5. Firmvér
 
-PlatformIO projekt v `firmware/`, rozdelený na súbory podľa [firmware/README.md](../firmware/README.md). Hlavná slučka `loop()` **nikdy neblokuje**, úlohy spúšťa podľa `millis()`:
+PlatformIO projekt v `firmware/`, rozdelený na súbory podľa [firmware/README.md](firmware/README.md). Hlavná slučka `loop()` **nikdy neblokuje**, úlohy spúšťa podľa `millis()`:
 
 | Perióda | Úloha |
 |---|---|

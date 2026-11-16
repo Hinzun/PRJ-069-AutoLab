@@ -1,5 +1,7 @@
 # Protokol testov AutoLab
 
+> **Archív (16. 11. 2026):** odložená možnosť, ďalej sa neupravuje. Tím pracuje na [Nerozlej](../../docs/moznost-nerozlej.md), pozri [archív](../../archiv/README.md).
+
 Akceptačné kritériá sú z [návrhu zadania](navrh-zadania.md), kapitola 5. Každý test zapíšeme ako nový riadok v tabuľke výsledkov.
 
 ## Testy

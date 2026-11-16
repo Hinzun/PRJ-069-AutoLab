@@ -1,6 +1,8 @@
 # Nákupný zoznam na 2 autá
 
-> **Nákup je pozastavený, zatiaľ nič neobjednávajte.** Tento zoznam platí iba pre pôvodnú verziu s ESP32. Pozri [stav projektu](../docs/stav-projektu.md).
+> **Archív (16. 11. 2026):** odložená možnosť, ďalej sa neupravuje. Tím pracuje na [Nerozlej](../../../docs/moznost-nerozlej.md), pozri [archív](../../../archiv/README.md).
+
+> **Nákup je pozastavený, zatiaľ nič neobjednávajte.** Tento zoznam platí iba pre pôvodnú verziu s ESP32. Pozri [stav projektu](../../../docs/stav-projektu.md).
 
 Ceny a sklad sme overili na stránkach obchodov 5. 11. 2026. Pred objednaním ich skontroluj, menia sa. Ceny sú s DPH.
 
@@ -40,7 +42,7 @@ Techfun má na sklade len verziu [WROOM-32U](https://techfun.sk/produkt/esp32-wr
 
 ## Zapojenie, ktoré sa oproti pôvodnému návrhu zmenilo
 
-Úplná tabuľka pinov je v [návrhu zadania, kap. 6](../docs/navrh-zadania.md#6-hardvér-zjednodušený-a-lacnejší).
+Úplná tabuľka pinov je v [návrhu zadania, kap. 6](../navrh-zadania.md#6-hardvér-zjednodušený-a-lacnejší).
 
 **1. Pin spánku na DRV8833.** Čip má vstup `nSLEEP` (na moduloch označený napr. `EEP` alebo `SLP`) a bez úrovne HIGH sú výstupy vypnuté. Ak ho modul nemá natrvalo pripojený, spoj ho s 3,3 V.
 

@@ -3,40 +3,41 @@
 Tímový projekt predmetu **Systémové myslenie v IT a digitálna fabrikácia (SMVIT / STHDF)**, FIIT STU, 2026/2027.
 ID projektu: `PRJ_069_ST21_ST22_ST23_ST32`.
 
-> **Výber projektu je otvorený a nákup dielov je pozastavený.** Cvičiaci odporučil použiť požičané mBot2. Začni v [stave projektu](docs/stav-projektu.md).
+> **Pracovný výber: Nerozlej** (16. 11. 2026). Začni v [stave projektu](docs/stav-projektu.md).
 
-**Pôvodný návrh:** dve malé autíčka s 3D tlačeným podvozkom a ESP32. Každé auto vytvorí vlastnú Wi-Fi sieť a v mobile zobrazí webovú stránku. Cez ňu ho používateľ riadi joystickom a za jazdy mení jeho parametre. Auto samo zastaví pred prekážkou, pred autom idúcim pred ním aj pri strate spojenia.
+**Nerozlej:** robot mBot2 ako čašník vezie loptičku v 3D tlačenej nádobe po čiare k „stolu“. Hráč na aute nastaví rýchlosť, rozjazd, brzdenie a zatáčanie a hľadá kompromis: rýchla jazda skracuje čas, ale loptička môže vyletieť. Auto samo zastaví pred cieľom, pri strate čiary aj na tlačidlo. Používame požičané mBoty zo SmartLabu, takže netreba nič kupovať.
 
 ## Tím
 
-Rozdelenie rolí je predbežné.
+Úlohy si rozdelíme, keď bude program na aute odladený.
 
-| ST ID | Meno | Rola | Osobný repozitár |
-|---|---|---|---|
-| ST021 | Branislav Bučko | hardvér a podvozok | *(doplniť odkaz)* |
-| ST022 | Erik Dusík | firmvér – komunikácia (Wi-Fi, WebSocket, parametre) | [ST-022-ErikDusik](https://github.com/Hinzun/ST-022-ErikDusik) |
-| ST023 | Adrián Fáber | firmvér – riadenie (motory, senzor, zastavovanie) | *(doplniť odkaz)* |
-| ST032 | Samuel Roháč | webová stránka a vedenie projektu | *(doplniť odkaz)* |
+| ST ID | Meno | Osobný repozitár |
+|---|---|---|
+| ST021 | Branislav Bučko | *(doplniť odkaz)* |
+| ST022 | Erik Dusík | [ST-022-ErikDusik](https://github.com/Hinzun/ST-022-ErikDusik) |
+| ST023 | Adrián Fáber | *(doplniť odkaz)* |
+| ST032 | Samuel Roháč | *(doplniť odkaz)* |
 
 ## Štruktúra
 
 ```
 PRJ-069-AutoLab/
-├── firmware/   # PlatformIO projekt pre ESP32: src/*.cpp, data/index.html
-├── hardware/   # 3D model a STL podvozku, schéma zapojenia, zoznam dielov
-└── docs/       # návrh zadania, SDLC dokumentácia, protokol testov, fotky
+├── mbot2/    # program Nerozlej pre CyberPi (MicroPython), testy na PC, ťahák do labu
+├── docs/     # stav, cesta projektu, SDLC dokumentácia, podklady k prezentácii
+└── archiv/   # odložené možnosti: verzia s ESP32 a Brzdná výzva
 ```
 
-- [Stav projektu](docs/stav-projektu.md): čo platí, aké sú možnosti a čo sa robí ďalej
+- [Stav projektu](docs/stav-projektu.md): čo platí a čo sa robí ďalej
+- [Nerozlej](docs/moznost-nerozlej.md): rozsah, nastavenia, priebeh jazdy, akceptačné testy
+- [Program pre mBot2](mbot2/README.md) a [ťahák do labu](mbot2/tahak-lab.md)
 - [Cesta projektu](docs/cesta-projektu.md): čo sme skúšali, čo nevyšlo a prečo sme to zmenili
-- [Návrh zadania](docs/navrh-zadania.md): rozsah, požiadavky, hardvér, harmonogram, rozdelenie práce
-- [Technická špecifikácia](docs/specifikacia.md): ako auto funguje (režimy, bezpečnosť, protokol, parametre, stránka)
 - [Dokumentácia podľa SDLC](docs/README.md)
-- [Protokol testov](docs/testovaci-protokol.md)
+- [Požiadavky predmetu](docs/poziadavky-predmetu.md)
+- [Archív](archiv/README.md)
 
 ## Ako pracujeme
 
-- Vetva `main` je vždy funkčná. Rozpracované veci patria do vlastnej vetvy, napr. `firmware-web`.
+- Vetva `main` je vždy funkčná. Rozpracované veci patria do vlastnej vetvy, napr. `nerozlej`.
 - Malé commity s popisom, čo sa zmenilo.
 - Raz týždenne krátke stretnutie: čo je hotové, čo ďalej, čo blokuje.
 - Každý si zapisuje svoju prácu do **denníka aktivít v osobnom repozitári** (hodnotí sa).

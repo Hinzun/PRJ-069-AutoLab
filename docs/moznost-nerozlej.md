@@ -1,6 +1,6 @@
 # Možnosť projektu: Nerozlej
 
-> **Stav:** pracovný výber od 16. 11. 2026. Tím ho formálne nepotvrdil, ale pre posun projektu podľa neho pracujeme a cvičiaci proti tomu nič nemá. Program pre auto je v [mbot2/](../mbot2/), na aute sa zatiaľ nespúšťal. [Špecifikácia](specifikacia.md) a [testovací protokol](testovaci-protokol.md) platia pre pôvodnú verziu s ESP32, pre Nerozlej platí tento dokument.
+> **Stav:** pracovný výber od 16. 11. 2026. Tím ho formálne nepotvrdil, ale pre posun projektu podľa neho pracujeme a cvičiaci proti tomu nič nemá. Program pre auto je v [mbot2/](../mbot2/), na aute sa zatiaľ nespúšťal. Pre Nerozlej je tento dokument zdroj pravdy. Odložené možnosti sú v [archíve](../archiv/README.md).
 
 ## Myšlienka
 

@@ -1,8 +1,10 @@
 # Firmvér
 
-PlatformIO projekt pre ESP32 (Arduino C++). Správanie opisuje [špecifikácia](../docs/specifikacia.md).
+> **Archív (16. 11. 2026):** odložená možnosť, ďalej sa neupravuje. Tím pracuje na [Nerozlej](../../../docs/moznost-nerozlej.md), pozri [archív](../../../archiv/README.md).
 
-> **Platí iba pre pôvodnú verziu s ESP32.** Výber projektu je otvorený, pozri [stav projektu](../docs/stav-projektu.md).
+PlatformIO projekt pre ESP32 (Arduino C++). Správanie opisuje [špecifikácia](../specifikacia.md).
+
+> **Platí iba pre pôvodnú verziu s ESP32.** Výber projektu je otvorený, pozri [stav projektu](../../../docs/stav-projektu.md).
 >
 > **Stav:** kód sa skompiluje pre obe autá a logika aj stránka prešli testami na PC. Na skutočnom ESP32, motoroch a senzore zatiaľ **neboli vyskúšané**.
 

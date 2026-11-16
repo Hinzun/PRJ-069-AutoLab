@@ -15,8 +15,8 @@
 | Možnosť | Auto | Stav |
 |---|---|---|
 | [Nerozlej](moznost-nerozlej.md) | požičaný mBot2 | **pracovný výber**, program napísaný, na aute neoverený |
-| [AutoLab s ESP32](navrh-zadania.md) | vlastné, treba kúpiť diely | odložené; firmvér a stránka sú napísané, na hardvéri neoverené |
-| [Brzdná výzva](moznost-brzdna-vyzva.md) | požičaný mBot2 | odložené |
+| [AutoLab s ESP32](../archiv/esp32/navrh-zadania.md) | vlastné, treba kúpiť diely | odložené; firmvér a stránka sú napísané, na hardvéri neoverené |
+| [Brzdná výzva](../archiv/brzdna-vyzva.md) | požičaný mBot2 | odložené |
 
 ### Prečo Nerozlej
 

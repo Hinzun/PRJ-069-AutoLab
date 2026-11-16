@@ -36,13 +36,13 @@ Stav z 5. 11. 2026. Pri cieli E/D sa oplatí hlavne to, čo stojí málo práce.
 
 | Prvok | Máme | Chýba | Oplatí sa? |
 |---|---|---|---|
-| Pôvod nápadu a cieľová skupina | návrh v [návrhu zadania](navrh-zadania.md) a v možnostiach projektu | potvrdenie po výbere projektu | áno |
+| Pôvod nápadu a cieľová skupina | hypotéza v [Nerozlej](moznost-nerozlej.md#cieľová-skupina-a-prínos) | overenie s niekým mimo tímu | áno |
 | Slepé uličky a zmeny rozhodnutí | [cesta projektu](cesta-projektu.md) a tabuľka zmien v [mape dokumentácie](README.md) | priebežné zápisy | áno |
 | Iterácie prototypu s fotkami | nič | fotky každej verzie | áno |
-| Tabuľka cien | [nákupný zoznam](../hardware/nakupny-zoznam.md) pre ESP32 | verzia pre vybraný projekt | áno, krátko |
-| Schéma zapojenia | pre ESP32 | pri mBot2 asi len popis pripojení | iba ak ostanú vlastné diely |
+| Tabuľka cien | pre ESP32 v [archíve](../archiv/esp32/hardware/nakupny-zoznam.md) | pri Nerozlej len filament na nádobu, autá sú požičané | áno, krátko |
+| Schéma zapojenia | netreba, mBot2 je hotové auto | | nie |
 | Nastavenia 3D tlače | nič | nastavenia a fotky z tlače | áno |
-| Diagramy v EA | plán v [návrhu zadania](navrh-zadania.md) | samotné diagramy | áno, pár kľúčových |
+| Diagramy v EA | [diagram príčinných väzieb](moznost-nerozlej.md#systémový-pohľad) | samotné diagramy v EA | áno, pár kľúčových |
 | Návod na použitie | nič | krátky návod | áno |
 | Video | nič | krátke demo | áno |
 | Plán vs. dodané | kostra v [podkladoch k prezentácii](prezentacia.md) | obsah | áno, šablóna to žiada |
