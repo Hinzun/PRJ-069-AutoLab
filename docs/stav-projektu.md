@@ -32,8 +32,8 @@ Zoznamy obsahu balenia sa v obchodoch líšia, preto to treba skontrolovať pria
 |---|---|
 | počet áut | v SmartLabe ich je približne 20 (Erik ich videl osobne) |
 | požičanie domov | nie, chodíme do labu občas |
-| smieme nahrať vlastný program do áut | TODO |
-| notebook s mBlockom 5 a kábel USB-C | TODO |
+| smieme nahrať vlastný program do áut | áno, prepísanie programu v aute nevadí |
+| notebook s mBlockom 5 a kábel USB-C | kábel máme, mBlock 5 je zadarmo |
 | senzor čiary (Quad RGB) a ultrazvukový senzor na aute | TODO |
 | akcelerometer, displej a joystick na CyberPi | TODO |
 | dá sa na auto pripevniť vlastný diel bez nákupu skrutiek | TODO |
@@ -45,7 +45,7 @@ Zoznamy obsahu balenia sa v obchodoch líšia, preto to treba skontrolovať pria
 | # | Krok | Kto | Stav |
 |---|---|---|---|
 | 1 | napísať program pre auto a testy na PC | Erik s Claude | hotové 16. 11. 2026 |
-| 2 | prvá návšteva v labe podľa [postupu](../mbot2/README.md#prvá-návšteva-v-labe-asi-30-minút), s kartónovým podnosom | Erik | TODO |
+| 2 | prvá návšteva v labe podľa [ťaháku](../mbot2/tahak-lab.md), s kartónovým podnosom | člen tímu vo štvrtok 19. 11. | TODO |
 | 3 | opraviť program podľa výsledkov návštevy | Erik s Claude | čaká na krok 2 |
 | 4 | navrhnúť a vytlačiť nádobu s držiakom | TODO | čaká na krok 2 (rozmery a miesto na aute) |
 | 5 | akceptačné testy N1 až N6 z [Nerozlej](moznost-nerozlej.md#akceptačné-testy) | TODO | TODO |

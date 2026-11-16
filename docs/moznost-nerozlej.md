@@ -124,12 +124,11 @@ Pridáme ich, iba ak bude hotové všetko z Must a ostane čas. Sú zoradené od
 
 | Riziko | Čo s tým |
 |---|---|
-| program sa na aute správa inak než v simulácii | test senzorov v programe a postup na prvú návštevu v [mbot2/README.md](../mbot2/README.md) |
+| program sa na aute správa inak než v simulácii | test senzorov v programe a [ťahák do labu](../mbot2/tahak-lab.md) |
 | do labu chodíme len občas | každú návštevu pripraviť vopred, konštanty na ladenie sú na začiatku programu |
 | sledovanie čiary nie je dosť presné | jednoduchá trasa, v najhoršom prípade Trasa Rovno |
 | vibrácie motorov prekryjú otrasy z jazdy | skóre len z času a pádu loptičky |
 | nádoba zmení ťažisko alebo zakryje ovládanie | najprv kartónový model, potom tlač |
-| nahratím prepíšeme program v požičanom aute | vopred sa dohodnúť v SmartLabe |
 
 ## Porovnanie možností
 
@@ -145,7 +144,6 @@ Pridáme ich, iba ak bude hotové všetko z Must a ostane čas. Sú zoradené od
 ## Otvorené otázky
 
 1. Súhlasí cvičiaci, že 3D tlač bude len nádoba a držiak?
-2. Smieme nahrať vlastný program do požičaných áut?
-3. Ako si po dokončení rozdelíme role a témy KNIFE?
+2. Ako si po dokončení rozdelíme role a témy KNIFE?
 
 Zdroj k režimom Live a Upload: [Makeblock Education](https://education.makeblock.com/?p=78174).
