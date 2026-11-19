@@ -23,10 +23,11 @@ Diagramy kreslíme v Enterprise Architect, každý vo svojom balíku `ST0XX` v t
 
 ## Cesta projektu a prezentácia
 
+- [12-týždňová Roadmapa a Cesta projektu](cesta-a-roadmapa-12-tyzdnov.md): detailná 12-týždňová cesta, dôvody zlyhania 3D tlače autodielov, pivot a scenár prezentácie
 - [Stav projektu](stav-projektu.md): čo platí, aké sú možnosti a čo sa robí ďalej
-- [Cesta projektu](cesta-projektu.md): čo sme skúšali, čo nevyšlo a prečo sme to zmenili
+- [Cesta projektu](cesta-projektu.md): chronologický záznam pokusov, zlyhaní a rozhodnutí
 - [Čo zachytávať počas práce](zachytavanie-prace.md): pomôcka pre tím a prepis do denníka aktivít
-- [Podklady k finálnej prezentácii](prezentacia.md): biznisový obrázok, aktuálny stav, plán vs. dodané
+- [Podklady k finálnej prezentácii](prezentacia.md): biznisový obrázok, aktuálny stav, plán vs. dodané, štruktúra slajdov
 - [Vzory z minulých rokov](vzory-projektov.md): CarCharm, Dog-Fit a čo nám oproti nim chýba
 - [Požiadavky predmetu](poziadavky-predmetu.md): hodnotenie, výstupy, SDLC, 7Ds a EA model
 

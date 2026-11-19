@@ -28,6 +28,7 @@ PRJ-069-AutoLab/
 ```
 
 - [Stav projektu](docs/stav-projektu.md): čo platí a čo sa robí ďalej
+- [12-týždňová Roadmapa a Cesta projektu](docs/cesta-a-roadmapa-12-tyzdnov.md): naša 12-týždňová cesta, zlyhanie 3D tlače autodielov, pivot a scenár prezentácie
 - [Nerozlej](docs/moznost-nerozlej.md): rozsah, nastavenia, priebeh jazdy, akceptačné testy
 - [Program pre mBot2](mbot2/README.md) a [ťahák do labu](mbot2/tahak-lab.md)
 - [Cesta projektu](docs/cesta-projektu.md): čo sme skúšali, čo nevyšlo a prečo sme to zmenili
