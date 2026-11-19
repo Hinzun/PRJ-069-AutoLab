@@ -285,3 +285,4 @@ Tento dokument je integrálnou súčasťou projektovej dokumentácie SDLC v repo
 - Prepája fázu **01 Business** (analýza neudržateľnosti 3D tlače dielov) s fázou **09 Change Management** (odôvodnenie všetkých pivotov).
 - Poskytuje podklad pre [podklady k prezentácii](prezentacia.md) a denníky aktivít v osobných repozitároch členov tímu.
 - Zaznamenáva kompletnú genézu projektu v súlade s požiadavkami predmetu SMVIT / STHDF na FIIT STU.
+
